@@ -1,0 +1,7 @@
+(defun screenshot ()
+ "Prompt for a filename, then call up scrot to create an interactive screenshot"
+  (interactive)
+  (let ((imgfile (read-string "Filename? " "scr.jpg" 'my-history)))
+    (insert "\nfile://" imgfile "\n" )
+    (start-process "scrot" nil "/usr/bin/scrot" "-s" imgfile)
+  ))
